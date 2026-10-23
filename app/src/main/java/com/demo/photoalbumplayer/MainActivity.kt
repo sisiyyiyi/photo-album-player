@@ -28,6 +28,17 @@ class MainActivity : AppCompatActivity() {
     enum class PlayMode { LOOP, RANDOM }
     enum class AnimType { FADE, SLIDE }
 
+    private val pickMediaLauncher = registerForActivityResult(ActivityResultContracts.GetMultipleContents()) { uriList ->
+        if (uriList.isNotEmpty()) {
+            mediaList.addAll(uriList)
+            showItem(mediaList[0])
+        }
+    }
+
+    private fun loadMediaFromGallery() {
+        pickMediaLauncher.launch("image/*,video/*")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnSetting.setOnClickListener { showSettingDialog() }
         binding.btnPlaylist.setOnClickListener { showPlaylistDialog() }
         binding.btnVolume.setOnClickListener { showVolumeDialog() }
+        // 新增：选择素材按钮点击事件
+        binding.btnSelect.setOnClickListener { loadMediaFromGallery() }
 
         binding.container.setOnClickListener { toggleAutoPlay() }
     }
@@ -132,14 +145,4 @@ class MainActivity : AppCompatActivity() {
     private fun showPlaylistDialog() {
         val v = LayoutInflater.from(this).inflate(R.layout.dialog_playlist, null)
         val listView = v.findViewById<ListView>(R.id.listPlaylist)
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mediaList.map { it.toString() })
-        listView.adapter = adapter
-        AlertDialog.Builder(this)
-            .setView(v)
-            .show()
-            .apply {
-                v.findViewById<Button>(R.id.btnClose).setOnClickListener { dismiss() }
-                listView.onItemClickListener = { _, _, pos, _ ->
-                    currentIndex = pos
-                    showItem(mediaList[pos])
-                    dis
+  
