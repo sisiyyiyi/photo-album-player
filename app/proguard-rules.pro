@@ -1,0 +1,3 @@
+-keep class com.bumptech.glide.** {*;}
+-keep class androidx.media3.** {*;}
+-keepclassmembers class * implements androidx.media3.common.Player$Listener {*;}
