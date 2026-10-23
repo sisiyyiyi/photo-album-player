@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="播放模式"/>
+
+    <RadioGroup
+        android:id="@+id/rgPlayMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rbLoop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="循环播放"/>
+        <RadioButton
+            android:id="@+id/rbRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="随机播放"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>
