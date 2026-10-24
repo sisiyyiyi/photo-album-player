@@ -4,6 +4,12 @@ plugins {
     id 'kotlin-kapt'
 }
 
+repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
 android {
     namespace "com.demo.photoalbumplayer"
     compileSdk 34
@@ -40,14 +46,12 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    // Media3 播放器
+    // Media3
     implementation "androidx.media3:media3-exoplayer:1.4.1"
     implementation "androidx.media3:media3-ui:1.4.1"
     implementation "androidx.media3:media3-common:1.4.1"
 
-    // Glide图片加载
-    implementation 'com.github.bumptech.glide:glide:4.16.0'
-    kapt 'com.github.bumptech.glide:compiler:4.16.0'
+    // PhotoView图片缩放
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 }
