@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,13 +14,11 @@
     <ListView
         android:id="@+id/listPlaylist"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="240dp"/>
 
     <Button
         android:id="@+id/btnClose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="关闭"
-        android:layout_marginTop="10dp"/>
+        android:text="关闭"/>
 </LinearLayout>
